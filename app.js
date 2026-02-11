@@ -16,6 +16,7 @@ const getUrl = require('./properties');
 
 const {
   P_MID = 'INIpayTest',
+  INICS_WEB_URL = 'https://stgstdpay.inicis.com/stdjs/INIStdPay.js',
   INICS_WEB_CLOSE_URL = 'https://stdpay.inicis.com/stdjs/INIStdPay_close.js',
   BASE_URL = 'http://localhost:3000',
   INICS_SIGN_KEY = 'SU5JTElURV9UUklQTEVERVNfS0VZU1RS',
@@ -57,6 +58,7 @@ app.get('/', (req, res) => {
     use_chkfake: use_chkfake,
     signature: signature,
     verification: verification,
+    inicsWebUrl: INICS_WEB_URL,
   });
 });
 
@@ -68,7 +70,7 @@ app.post('/INIstdpay_pc_return.ejs', (req, res) => {
     const signKey = INICS_SIGN_KEY;
     const authToken = req.body.authToken; // 승인요청 검증 토큰
     const netCancelUrl = req.body.netCancelUrl; // 망취소요청 Url
-    const merchantData = req.body.merchantData;
+    const merchantData = req.body.merchantData; // goodsId=1234567890 상품번호
     const timestamp = new Date().getTime(); // 타임스템프 [TimeInMillis(Long형)]
     const charset = 'UTF-8'; // 리턴형식[UTF-8,EUC-KR](가맹점 수정후 고정)
     const format = 'JSON'; // 리턴형식[XML,JSON,NVP](가맹점 수정후 고정)
@@ -106,6 +108,7 @@ app.post('/INIstdpay_pc_return.ejs', (req, res) => {
       charset: charset,
       format: format,
     };
+    const goodsId = merchantData.split('=')[1]; // 상품번호
 
     if (authUrl == authUrl2) {
       // to.가람
@@ -118,6 +121,7 @@ app.post('/INIstdpay_pc_return.ejs', (req, res) => {
 
             let result = JSON.parse(jsoncode);
 
+            console.log('result', result);
             res.render('INIstdpay_pc_return.ejs', {
               resultCode: result.resultCode,
               resultMsg: result.resultMsg,
@@ -127,6 +131,7 @@ app.post('/INIstdpay_pc_return.ejs', (req, res) => {
               goodName: result.goodName,
               applDate: result.applDate,
               applTime: result.applTime,
+              goodsId,
             });
 
             // to.가람
