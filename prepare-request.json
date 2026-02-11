@@ -1,0 +1,23 @@
+{
+  "gopaymethod": "Card",
+  "mid": "INIpayTest",
+  "oid": "INIpayTest_1770799238116",
+  "price": "10",
+  "goodname": "테스트상품",
+  "buyername": "테스터",
+  "buyertel": "01012345678",
+  "buyeremail": "test@test.com",
+  "acceptmethod": "HPP(1):va_receipt:below1000:centerCd(Y)",
+  "merchantData": "goodsId=1234567890",
+  "type": "PREPARE",
+  "charset": "UTF-8",
+  "timestamp": "1770799238116",
+  "use_chkfake": "Y",
+  "returnUrl": "http://localhost:3000/INIstdpay_pc_return.ejs",
+  "closeUrl": "http://localhost:3000/close",
+  "version": "1.0",
+  "signature": "b5836b7b2935e68aaeaa76843af62800a72af623e8b6f3456a426c6b70f47ad2",
+  "verification": "ee4eb7bf72e1fe5b1f8d0723f8fb580ba5f2b035b8457d4df7727ab6ae2c9b82",
+  "mKey": "3a9503069192f207491d4b19bd743fc249a761ed94246c8c42fed06c3cd15a33",
+  "currency": "WON"
+}

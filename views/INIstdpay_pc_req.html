@@ -20,6 +20,11 @@
     ></script>
     <script type="text/javascript">
       function paybtn() {
+
+        const form = document.getElementById('SendPayForm_id');
+        const formData = new FormData(form);
+        const formDataObject = Object.fromEntries(formData.entries());
+        console.log(JSON.stringify(formDataObject));
         INIStdPay.pay('SendPayForm_id');
       }
     </script>
@@ -35,7 +40,7 @@
         </div>
       </section>
       <div class="card">
-        <form name="" id="SendPayForm_id" method="post">
+        <form name="" id="SendPayForm_id" name="sendPayForm" method="post">
 
             <table>
               <tbody>

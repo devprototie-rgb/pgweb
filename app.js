@@ -70,10 +70,13 @@ app.post('/INIstdpay_pc_return.ejs', (req, res) => {
     const signKey = INICS_SIGN_KEY;
     const authToken = req.body.authToken; // 승인요청 검증 토큰
     const netCancelUrl = req.body.netCancelUrl; // 망취소요청 Url
-    const merchantData = req.body.merchantData; // goodsId=1234567890 상품번호
     const timestamp = new Date().getTime(); // 타임스템프 [TimeInMillis(Long형)]
     const charset = 'UTF-8'; // 리턴형식[UTF-8,EUC-KR](가맹점 수정후 고정)
     const format = 'JSON'; // 리턴형식[XML,JSON,NVP](가맹점 수정후 고정)
+
+    // %%%%%%%%% 중요!!!
+    // 해당 값을 provide api 호출시 반드시 전달 해야 함
+    const merchantData = req.body.merchantData; // goodsId=1234567890 상품번호
 
     const idc_name = req.body.idc_name;
     const authUrl = req.body.authUrl; // 승인요청 Url
@@ -136,6 +139,7 @@ app.post('/INIstdpay_pc_return.ejs', (req, res) => {
 
             // to.가람
             // 결제처리 완료후 /api/v1/payment/provide api 호출하여 결제처리 완료 처리
+            // 반드시 추가로 merchantData 값을 전달 해야 함 (중요!!!!)
             // 에러 발생시 망취소 처리(아래 참고)
           } catch (e) {
             // to.가람
