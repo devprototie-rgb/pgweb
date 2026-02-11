@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>KG이니시스 결제샘플</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+  </head>
+
+  <body class="wrap">
+    <!-- 본문 -->
+    <main class="col-8 cont" id="bill-01">
+      <!-- 페이지타이틀 -->
+      <section class="mb-5">
+        <div class="tit">
+          <h2>일반결제</h2>
+          <p>
+            KG이니시스 결제창을 호출하여 다양한 지불수단으로 안전한 결제를
+            제공하는 서비스
+          </p>
+        </div>
+      </section>
+      <!-- //페이지타이틀 -->
+
+      <!-- 카드CONTENTS -->
+      <div class="card">
+        <form name="" id="result" method="post" class="mt-5">
+          <table>
+            <tbody>
+              <tr>
+                <th>resultCode</th>
+                <td><%= resultCode %></td>
+              </tr>
+              <tr>
+                <th>resultMsg</th>
+                <td><%= resultMsg %></td>
+              </tr>
+              <tr>
+                <th>tid</th>
+                <td><%= tid %></td>
+              </tr>
+              <tr>
+                <th>MOID</th>
+                <td><%= MOID %></td>
+              </tr>
+              <tr>
+                <th>TotPrice</th>
+                <td><%= TotPrice %></td>
+              </tr>
+              <tr>
+                <th>goodName</th>
+                <td><%= goodName %></td>
+              </tr>
+              <tr>
+                <th>applDate</th>
+                <td><%= applDate %></td>
+              </tr>
+              <tr>
+                <th>applTime</th>
+                <td><%= applTime %></td>
+              </tr>
+            </tbody>
+          </table>
+        </form>
+
+        <button
+          onclick="location.href = 'https://[가맹점도메인]/'"
+          class="btn_solid_pri col-6 mx-auto btn_lg"
+          style="margin-top: 50px"
+        >
+          돌아가기
+        </button>
+      </div>
+    </main>
+  </body>
+</html>

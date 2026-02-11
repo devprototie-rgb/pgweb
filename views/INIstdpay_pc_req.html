@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>KG이니시스 결제샘플</title>
+    <!-- <link rel="stylesheet" href="css/style.css" /> -->
+    <!-- <link rel="stylesheet" href="css/bootstrap.min.css" /> -->
+
+    <!--테스트 JS-->
+    <script
+      language="javascript"
+      type="text/javascript"
+      src="https://stgstdpay.inicis.com/stdjs/INIStdPay.js"
+      charset="UTF-8"
+    ></script>
+    <script type="text/javascript">
+      function paybtn() {
+        INIStdPay.pay('SendPayForm_id');
+      }
+    </script>
+  </head>
+
+  <body class="wrap">
+    <!-- 본문 -->
+    <main class="col-8 cont" id="bill-01">
+      <!-- 페이지타이틀 -->
+      <section class="mb-5">
+        <div class="tit">
+          <h2>일반결제 WEB</h2>
+        </div>
+      </section>
+      <!-- //페이지타이틀 -->
+
+      <!-- 카드CONTENTS -->
+      <div class="card">
+        <form name="" id="SendPayForm_id" method="post">
+
+            <table>
+              <tbody>
+                <tr>
+                  <th>gopaymethod</th>
+                  <td><input type="text" name="gopaymethod" value="Card" /></td>
+                </tr>
+                <tr>
+                  <th>mid</th>
+                  <td><input type="text" name="mid" value="<%=mid%>" /></td>
+                </tr>
+                <tr>
+                  <th>oid</th>
+                  <td><input type="text" name="oid" value="<%=oid%>" /></td>
+                </tr>
+                <tr>
+                  <th>price</th>
+                  <td><input type="text" name="price" value="<%=price%>" /></td>
+                </tr>
+                <tr>
+                  <th>goodname</th>
+                  <td>
+                    <input type="text" name="goodname" value="테스트상품" />
+                  </td>
+                </tr>
+                <tr>
+                  <th>buyername</th>
+                  <td><input type="text" name="buyername" value="테스터" /></td>
+                </tr>
+                <tr>
+                  <th>buyertel</th>
+                  <td>
+                    <input type="text" name="buyertel" value="01012345678" />
+                  </td>
+                </tr>
+                <tr>
+                  <th>buyeremail</th>
+                  <td>
+                    <input
+                      type="text"
+                      name="buyeremail"
+                      value="test@test.com"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <th>acceptmethod</th>
+                  <td>
+                    <input
+                      type="text"
+                      name="acceptmethod"
+                      value="HPP(1):va_receipt:below1000:centerCd(Y)"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <th>merchantData</th>
+                  <td>
+                    <input
+                      type="text"
+                      name="merchantData"
+                      value="goodsId=1234567890"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <th>type</th>
+                  <td><input type="text" name="type" value="PREPARE" /></td>
+                </tr>
+                <tr>
+                  <th>charset</th>
+                  <td><input type="text" name="charset" value="UTF-8" /></td>
+                </tr>
+                <tr>
+                  <th>timestamp</th>
+                  <td>
+                    <input
+                      type="text"
+                      name="timestamp"
+                      value="<%=timestamp%>"
+                    />
+                  </td>
+                </tr>
+
+                <tr>
+                  <th>use_chkfake</th>
+                  <td>
+                    <input
+                      type="text"
+                      name="use_chkfake"
+                      value="<%=use_chkfake%>"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <th>returnUrl</th>
+                  <td>
+                    <input
+                      type="text"
+                      name="returnUrl"
+                      value="http://localhost:3000/INIstdpay_pc_return.ejs"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <th>closeUrl</th>
+                  <td>
+                    <input
+                      type="text"
+                      name="closeUrl"
+                      value="http://localhost:3000/close"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <th>version</th>
+                  <td><input type="text" name="version" value="1.0" /></td>
+                </tr>
+                <tr>
+                  <th>signature</th>
+                  <td>
+                    <input
+                      type="text"
+                      name="signature"
+                      value="<%=signature%>"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <th>verification</th>
+                  <td>
+                    <input
+                      type="text"
+                      name="verification"
+                      value="<%=verification%>"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <th>mKey</th>
+                  <td><input type="text" name="mKey" value="<%=mKey%>" /></td>
+                </tr>
+                <tr>
+                  <th>WON</th>
+                  <td><input type="text" name="currency" value="WON" /></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </form>
+
+        <button
+          onclick="paybtn()"
+          class="btn_solid_pri col-6 mx-auto btn_lg"
+          style="margin-top: 50px"
+        >
+          결제 요청
+        </button>
+    </main>
+  </body>
+</html>
